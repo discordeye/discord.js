@@ -240,7 +240,7 @@ class Util {
     if (!token) throw new DiscordError('TOKEN_MISSING');
     return fetch(`${DefaultOptions.http.api}/v${DefaultOptions.http.version}${Endpoints.botGateway}`, {
       method: 'GET',
-      headers: { Authorization: `Bot ${token.replace(/^Bot\s*/i, '')}` },
+      headers: { Authorization: `${token}` },
     })
       .then(res => {
         if (res.ok) return res.json();
